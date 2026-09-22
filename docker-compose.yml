@@ -3,17 +3,23 @@ services:
     build: ./backend
     container_name: profile-backend
     environment:
-      MONGO_URL: mongodb://mongo:27017
+      COUCHDB_URL: http://couchdb:5984
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     ports:
       - "8000:8000"
     depends_on:
-      - mongo
+      - couchdb
 
-  mongo:
-    image: mongo:8
-    container_name: profile-mongo
+  couchdb:
+    image: couchdb:3
+    container_name: profile-couchdb
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD}
     volumes:
-      - mongodb-data:/data/db
+      - couchdb-data:/opt/couchdb/data
 
 volumes:
-  mongodb-data:
+  couchdb-data:

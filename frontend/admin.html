@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入 / 修改個人資料</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .admin-card {
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="admin-card">
+
+    <h1>登入 / 修改個人資料</h1>
+
+    <div id="loginSection">
+
+        <label for="password">管理員密碼</label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="請輸入管理員密碼"
+        >
+
+        <button id="loginButton">登入</button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+    <div id="editSection" style="display:none;">
+
+        <label for="name">姓名</label>
+        <input type="text" id="name">
+
+        <label for="school">學校</label>
+        <input type="text" id="school">
+
+        <label for="department">科系</label>
+        <input type="text" id="department">
+
+        <label for="bio">自我介紹</label>
+        <textarea id="bio" rows="4"></textarea>
+
+        <button id="saveButton">儲存資料</button>
+
+        <p id="saveMessage"></p>
+
+    </div>
+
+    <a href="/">返回個人資料首頁</a>
+
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>
